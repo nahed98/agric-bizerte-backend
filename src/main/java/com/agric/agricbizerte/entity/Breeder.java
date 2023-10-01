@@ -6,7 +6,7 @@ import java.util.Set;
 @Table(name = "breeders")
 public class Breeder {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "breeder_id")
     private Long id;
 

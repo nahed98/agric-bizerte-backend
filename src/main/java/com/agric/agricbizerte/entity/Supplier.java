@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name = "suppliers")
 public class Supplier {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "supplier_id")
     private Long id;
 
@@ -21,16 +21,13 @@ public class Supplier {
 
     @Column(name = "share_annual")
     private String shareAnnual;
-    @OneToMany(mappedBy="supplier")
-    private Set<SupplyProcess> supplyProcess;
     public Supplier(){}
-    public Supplier(Long id, String name, String address, Long phone, String shareAnnual, Set<SupplyProcess> supplyProcess){
+    public Supplier(Long id, String name, String address, Long phone, String shareAnnual){
         this.id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.shareAnnual = shareAnnual;
-        this.supplyProcess = supplyProcess;
     }
 
     public String getName() {
@@ -65,13 +62,7 @@ public class Supplier {
         this.shareAnnual = shareAnnual;
     }
 
-    public Set<SupplyProcess> getSupplyProcess() {
-        return supplyProcess;
-    }
 
-    public void setSupplyProcess(Set<SupplyProcess> supplyProcess) {
-        this.supplyProcess = supplyProcess;
-    }
 
     public Long getId() {
         return id;

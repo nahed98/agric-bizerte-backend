@@ -8,66 +8,49 @@ import java.util.Date;
 @Table(name = "bovins")
 public class Bovin {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "bovin_id")
+    private Long id;
+    @Column(name = "bovin_idf")
+
     private String bovinId;
     @Column(name = "state")
+
     private String state;
     @ManyToOne
-    @JoinColumn(name="breeder_id", nullable=true)
+    @JoinColumn(name="`breeder_id`", nullable=true)
     private Breeder breeder;
-    @Column(name = "breederName")
+    @Column(name = "breeder_name")
+
     private String breederName;
-    @Column(name = "type_racial")
+    @Column(name = "race")
+
     private String typeRacial;
     @Column(name = "location")
+
     private String location;
     @Column(name = "gps_coordinate")
+
     private String gpsCoordinate;
     @Column(name = "saved_date")
+
     private String savedDate;
 
     @ManyToOne
-    @JoinColumn(name="supplier_id", nullable=true)
+    @JoinColumn(name="`supplier_id`", nullable=true)
     private Supplier Supplier;
+    @Column(name = "destination")
     private String Destination;  // supplier links
 
-    @Column(name = "sex")
-    private String sex;
-
-    @Column(name = "date_of_birth")
-    private Date dateOfBirth;
-    @Column(name = "end_date")
-    private Date endDate;
-    /*@Column(name = "work_number")
-    private Integer workNumber;*/
-
-    @Column(name = "name")
-    private String name;
-    @Column(name = "status_daughter")
-    private boolean statusDaughter;
-    @Column(name = "surrogate_mother")
-    private Long surrogateMother; //foreign key
-    @Column(name = "father_ipg")
-    private Long fatherIPG;//foreign key
 
 
     public Bovin(){}
-    public Bovin(Long id, String state, String breederName, String name, String sex, Date dateOfBirth, String bovinId, String typeRacial, Date endDate, boolean statusDaughter, Long surrogateMother, Long fatherIPG, Breeder breeder, String location, String gpsCoordinate, String savedDate, com.agric.agricbizerte.entity.Supplier supplier, String destination) {
+    public Bovin(Long id, String state, String breederName,  String bovinId, String typeRacial,  Breeder breeder, String location, String gpsCoordinate, String savedDate, com.agric.agricbizerte.entity.Supplier supplier, String destination) {
         this.id = id;
         this.state = state;
         this.breederName = breederName;
-        this.name = name;
-        this.sex = sex;
-        this.dateOfBirth = dateOfBirth;
         this.bovinId = bovinId;
         this.typeRacial = typeRacial;
-        this.endDate = endDate;
-        this.statusDaughter = statusDaughter;
-        this.surrogateMother = surrogateMother;
-        this.fatherIPG = fatherIPG;
         this.breeder = breeder;
         this.location = location;
         this.gpsCoordinate = gpsCoordinate;
@@ -77,53 +60,8 @@ public class Bovin {
     }
 
 
-    public Long getFatherIPG() {
-        return fatherIPG;
-    }
 
-    public void setFatherIPG(Long fatherIPG) {
-        this.fatherIPG = fatherIPG;
-    }
 
-    public Long getSurrogateMother() {
-        return surrogateMother;
-    }
-
-    public void setSurrogateMother(Long surrogateMother) {
-        this.surrogateMother = surrogateMother;
-    }
-
-    public boolean isStatusDaughter() {
-        return statusDaughter;
-    }
-
-    public void setStatusDaughter(boolean statusDaughter) {
-        this.statusDaughter = statusDaughter;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
 
     public String getTypeRacial() {
         return typeRacial;
@@ -133,13 +71,7 @@ public class Bovin {
         this.typeRacial = typeRacial;
     }
 
-    public String getSex() {
-        return sex;
-    }
 
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
 
     public String getBovinId() {
         return bovinId;
